@@ -9,6 +9,7 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contacts',require('./routes/contacts'));
 app.use('/api/incidents', require('./routes/incidents'));
+app.use('/api/reports', require('./routes/incidents'));
 app.use('/api/sos', require('./routes/sos'));
 app.use('/api/nearby', require('./routes/nearby'));
 app.use('/api/chat', require('./routes/chat'));

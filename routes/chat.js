@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
   const { message } = req.body;
   try {
     const response = await groq.chat.completions.create({
-      model: 'llama3-8b-8192',
+      model: 'llama-3.1-8b-8192',
       messages: [
         {
           role: 'system',
@@ -29,8 +29,9 @@ router.post('/', async (req, res) => {
       reply: response.choices[0].message.content
     });
   } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+  console.error('GROQ ERROR:', err);
+  res.status(500).json({ error: err.message });
+}
 });
 
 module.exports = router;
