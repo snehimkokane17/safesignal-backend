@@ -4,7 +4,9 @@ const { createClient } = require('@supabase/supabase-js');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['https://safesignal-seven.vercel.app', 'https://jovial-tartufo-035314.netlify.app']
+}));
 app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contacts',require('./routes/contacts'));
